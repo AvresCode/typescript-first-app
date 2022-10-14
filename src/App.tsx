@@ -1,6 +1,7 @@
 import React, { FC, useState, ChangeEvent } from "react";
 import "./App.css";
 import { ITask } from "./interfaces";
+import { TodoList } from "./components/TodoList";
 
 const App: FC = () => {
   const [task, setTask] = useState<string>("");
@@ -8,12 +9,14 @@ const App: FC = () => {
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setTask(event.target.value);
+
     // console.log(task);
   };
 
   const addTask = (): void => {
     const newTask = { taskName: task };
     setTodoList([...todoList, newTask]);
+    setTask("");
     console.log(todoList);
   };
 
@@ -29,6 +32,7 @@ const App: FC = () => {
           className="inputContainer"
           type="text"
           placeholder="Add a task"
+          value={task}
           onChange={handleChange}
         />
       </div>
@@ -38,6 +42,12 @@ const App: FC = () => {
           {" "}
           Add Task
         </button>
+      </div>
+      <div className="todoList">
+        {" "}
+        {todoList.map((task: ITask, key: number) => (
+          <TodoList key={key} task={task} />
+        ))}
       </div>
     </div>
   );
