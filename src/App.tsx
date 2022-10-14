@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {FC} from 'react';
 import './App.css';
 
 
-function App() {
+const App: FC = () => {
   return (
     <div className="App">
     
-  
+  <div> <h1>To Do List:</h1></div>
+  <div> <input className='inputContainer'  type="text" placeholder="Add a task"/></div>
+  <div> <button> Add Task</button></div>
 
     </div>
   );
