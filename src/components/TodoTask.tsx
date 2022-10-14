@@ -5,6 +5,6 @@ interface Props {
   task: ITask;
 }
 
-export const TodoList = ({ task }: Props) => {
+export const TodoTask = ({ task }: Props) => {
   return <div>{task.taskName}</div>;
 };

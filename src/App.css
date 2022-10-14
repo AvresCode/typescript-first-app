@@ -3,17 +3,23 @@
 }
 
 .inputContainer {
-  border-radius: 2rem;
-  height: 2.5rem;
+  border-radius: 2rem 0 0 2rem;
+  height: 2.3rem;
   width: 30vw;
-  font-size: 1rem;
+  font-size: 0.8rem;
   padding-left: 1rem;
-  margin-bottom: 1rem;
 }
 
 .addButton {
-  border-radius: 2rem;
+  border-radius: 0 2rem 2rem 0;
   height: 2.5rem;
   width: 10vw;
   font-size: 0.8rem;
+}
+
+.addTaskContainer {
+  display: flex;
+  background-color: aquamarine;
+  justify-content: center;
+  padding: 1rem;
 }
