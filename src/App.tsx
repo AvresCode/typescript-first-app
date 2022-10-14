@@ -8,7 +8,7 @@ const App: FC = () => {
     
   <div> <h1>To Do List:</h1></div>
   <div> <input className='inputContainer'  type="text" placeholder="Add a task"/></div>
-  <div> <button> Add Task</button></div>
+  <div> <button className='addButton'> Add Task</button></div>
 
     </div>
   );
