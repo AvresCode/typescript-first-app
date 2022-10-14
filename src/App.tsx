@@ -1,13 +1,20 @@
 import React, { FC, useState, ChangeEvent } from "react";
 import "./App.css";
+import { ITask } from "./interfaces";
 
 const App: FC = () => {
   const [task, setTask] = useState<string>("");
-  const [todoList, setTodoList] = useState([]);
+  const [todoList, setTodoList] = useState<ITask[]>([]);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setTask(event.target.value);
-    //console.log(task);
+    // console.log(task);
+  };
+
+  const addTask = (): void => {
+    const newTask = { taskName: task };
+    setTodoList([...todoList, newTask]);
+    console.log(todoList);
   };
 
   return (
@@ -27,7 +34,10 @@ const App: FC = () => {
       </div>
       <div>
         {" "}
-        <button className="addButton"> Add Task</button>
+        <button className="addButton" onClick={addTask}>
+          {" "}
+          Add Task
+        </button>
       </div>
     </div>
   );
