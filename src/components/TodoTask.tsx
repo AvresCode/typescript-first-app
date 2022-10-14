@@ -6,5 +6,16 @@ interface Props {
 }
 
 export const TodoTask = ({ task }: Props) => {
-  return <div>{task.taskName}</div>;
+  return (
+    <div className="taskContainer">
+      <div className="taskName">{task.taskName}</div>
+      <div>
+        {" "}
+        <button className="changeButtons">Edit</button>
+      </div>
+      <div>
+        <button className="changeButtons">Delete</button>
+      </div>
+    </div>
+  );
 };
