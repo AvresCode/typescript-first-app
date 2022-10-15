@@ -6,6 +6,8 @@ import { TodoTask } from "./components/TodoTask";
 const App: FC = () => {
   const [task, setTask] = useState<string>("");
   const [todoList, setTodoList] = useState<ITask[]>([]);
+  const [taskEditing, setTaskEditing] = useState<boolean>(false);
+  const [editedText, setEditedText] = useState<string>(task);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setTask(event.target.value);
@@ -26,6 +28,16 @@ const App: FC = () => {
         return task.taskName != taskNameToDelete;
       })
     );
+  };
+
+  const editTask = (taskNameToDelete: string): void => {
+    setTaskEditing(true);
+  };
+
+  const handleEdit = (event: ChangeEvent<HTMLInputElement>): void => {
+    setEditedText(event.target.value);
+
+    // console.log(task);
   };
 
   return (
@@ -56,7 +68,18 @@ const App: FC = () => {
       <div className="todoList">
         {" "}
         {todoList.map((task: ITask, key: number) => (
-          <TodoTask key={key} task={task} deleteTask={deleteTask} />
+          <div key={key}>
+            {" "}
+            <TodoTask
+              key={key}
+              task={task}
+              deleteTask={deleteTask}
+              editTask={editTask}
+              handleEdit={handleEdit}
+              editedText={editedText}
+              taskEditing={taskEditing}
+            />
+          </div>
         ))}
       </div>
     </div>
