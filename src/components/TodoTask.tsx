@@ -25,7 +25,12 @@ export const TodoTask = ({
     <div className="taskContainer">
       {taskEditing == task?.taskName ? (
         <div>
-          <input type="text" onChange={handleEditInput} value={editigText} />{" "}
+          <input
+            className="taskName"
+            type="text"
+            onChange={handleEditInput}
+            value={editigText}
+          />{" "}
           <button
             className="changeButtons"
             onClick={() => {
@@ -36,11 +41,10 @@ export const TodoTask = ({
           </button>
         </div>
       ) : (
-        <div>
+        <div style={{ display: "flex" }}>
           {" "}
-          <div className="taskName">{task?.taskName}</div>
+          <div className="taskName">{task?.taskName}</div>{" "}
           <div>
-            {" "}
             <button
               className="changeButtons"
               onClick={() => {

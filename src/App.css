@@ -1,9 +1,24 @@
+body {
+  background-image: linear-gradient(
+    to right,
+    rgb(231, 226, 226),
+    rgb(218, 110, 56)
+  );
+
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
 .inputContainer {
   border-radius: 2rem 0 0 2rem;
   height: 2.3rem;
   width: 30vw;
   font-size: 0.8rem;
   padding-left: 1rem;
+  background-image: linear-gradient(
+    to right,
+    rgb(231, 226, 226),
+    rgb(226, 91, 24)
+  );
 }
 
 .addButton {
@@ -11,11 +26,16 @@
   height: 2.5rem;
   width: 10vw;
   font-size: 0.8rem;
+  background-image: linear-gradient(
+    to right,
+    rgb(231, 226, 226),
+    rgb(184, 119, 86)
+  );
 }
 
 .addTaskContainer {
   display: flex;
-  background-color: aquamarine;
+  background-color: rgb(38, 20, 20);
   justify-content: center;
   padding: 1rem;
   margin: 1rem;
@@ -23,7 +43,7 @@
 
 .taskContainer {
   display: flex;
-  background-color: bisque;
+  background-color: rgb(38, 20, 20);
   justify-content: center;
   padding: 1rem;
   margin: 1rem;
@@ -32,13 +52,42 @@
 .taskName {
   height: 2.3rem;
   width: 26vw;
-  background-color: rgb(92, 81, 102);
+
+  border: 0.1rem solid rgb(81, 28, 28);
   border-radius: 1rem;
   padding-left: 1rem;
+  background-image: linear-gradient(
+    to right,
+    rgb(231, 226, 226),
+    rgb(226, 91, 24)
+  );
 }
 
 .changeButtons {
   width: 8vw;
   height: 2rem;
   border-radius: 1rem;
+  background-image: linear-gradient(
+    to right,
+    rgb(231, 226, 226),
+    rgb(184, 119, 86)
+  );
+}
+
+@media (max-width: 750px) {
+  .taskName {
+    width: 50vw;
+  }
+
+  .inputContainer {
+    width: 60vw;
+  }
+
+  .addButton {
+    width: 15vw;
+  }
+
+  .changeButtons {
+    width: 12vw;
+  }
 }

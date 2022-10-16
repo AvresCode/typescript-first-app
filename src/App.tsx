@@ -68,7 +68,7 @@ const App: FC = () => {
 
   return (
     <div className="App">
-      <div>
+      <div style={{ textAlign: "center" }}>
         {" "}
         <h1>To Do List:</h1>
       </div>
