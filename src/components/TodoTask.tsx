@@ -6,38 +6,53 @@ interface Props {
   task: ITask;
   deleteTask(taskNameToDelete: string): void;
   editTask(taskNameToEdit: string): void;
-  handleEdit(event: ChangeEvent<HTMLInputElement>): void;
-  editedText: string;
-  taskEditing: boolean;
+  handleEditInput(event: ChangeEvent<HTMLInputElement>): void;
+  editigText: string;
+  taskEditing: string;
+  handleEditSubmit(taskNameToEdit: string): void;
 }
 
 export const TodoTask = ({
   task,
   deleteTask,
   editTask,
-  handleEdit,
-  editedText,
+  handleEditInput,
+  editigText,
   taskEditing,
+  handleEditSubmit,
 }: Props) => {
   return (
     <div className="taskContainer">
-      {taskEditing ? (
-        <input type="text" onChange={() => handleEdit} value={editedText} />
+      {taskEditing == task?.taskName ? (
+        <div>
+          <input type="text" onChange={handleEditInput} value={editigText} />{" "}
+          <button
+            className="changeButtons"
+            onClick={() => {
+              handleEditSubmit(task.taskName);
+            }}
+          >
+            Submit
+          </button>
+        </div>
       ) : (
-        <div className="taskName">{task.taskName}</div>
+        <div>
+          {" "}
+          <div className="taskName">{task?.taskName}</div>
+          <div>
+            {" "}
+            <button
+              className="changeButtons"
+              onClick={() => {
+                editTask(task?.taskName);
+              }}
+            >
+              Edit
+            </button>
+          </div>
+        </div>
       )}
 
-      <div>
-        {" "}
-        <button
-          className="changeButtons"
-          onClick={() => {
-            editTask(task.taskName);
-          }}
-        >
-          Edit
-        </button>
-      </div>
       <div>
         <button
           className="changeButtons"
